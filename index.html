@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX in AI Solutions — Exam Handbook</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1f1d1a;--muted:#6b665e;--line:#e6e1d8;--accent:#b4532a;--side:#f3efe8}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1917;--fg:#ece8e1;--muted:#a39d93;--line:#34312c;--accent:#e08a5f;--side:#22201d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{display:flex;min-height:100vh}
+nav{width:270px;flex:none;background:var(--side);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;overflow:auto}
+nav .brand{font-weight:700;font-size:15px;margin:0 8px 16px}
+nav a{display:block;padding:7px 10px;border-radius:6px;color:var(--fg);text-decoration:none;font-size:14.5px}
+nav a:hover{background:var(--line)}
+nav a.active{background:var(--accent);color:#fff}
+main{flex:1;min-width:0;padding:40px 48px 80px;max-width:860px}
+section{display:none}
+section.show{display:block}
+h1{font-size:30px;line-height:1.25;margin:0 0 20px}
+h2{font-size:22px;margin:36px 0 12px}
+h3{font-size:18px;margin:32px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
+p,li{margin:6px 0}
+ul,ol{padding-left:24px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--side)}
+em{color:var(--muted)}
+.meta{color:var(--muted);font-size:14px}
+.pager{display:flex;justify-content:space-between;margin-top:48px;gap:12px}
+.pager a{color:var(--accent);text-decoration:none;font-weight:600}
+#menu{display:none}
+@media (max-width:800px){
+ .wrap{display:block}
+ nav{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--line);display:none}
+ nav.open{display:block}
+ #menu{display:block;width:100%;padding:12px 16px;background:var(--side);border:0;border-bottom:1px solid var(--line);color:var(--fg);font:600 15px inherit;text-align:left}
+ main{padding:24px 18px 60px}
+ table{display:block;overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<button id="menu" aria-expanded="false">☰ Chapters</button>
+<div class="wrap">
+<nav id="nav" aria-label="Chapters">
+<div class="brand">UX in AI — Exam Handbook</div>
+</nav>
+<main id="main">
+
+<section id="overview" data-title="Overview">
+<h1>UX in AI Solutions — Exam Handbook</h1>
+<p class="meta">2026-11-18</p>
+<p><strong>Big idea of the whole course:</strong> AI is good only when people can use it to reach their goals safely. High model accuracy is not enough.</p>
+<h2>How to answer any scenario question</h2>
+<p>Use these 5 steps. They work for almost every question.</p>
+<ol>
+<li><p><strong>User</strong> — Who is the user? What is their goal and situation? (e.g. Chelsea: works full-time, needs online courses, max 6 h/week)</p></li>
+<li><p><strong>Problem</strong> — What goes wrong for the user today?</p></li>
+<li><p><strong>AI risk</strong> — What can the AI do wrong? (wrong answer, too confident, no explanation, user trusts it too much, privacy)</p></li>
+<li><p><strong>Design fix</strong> — What do you change? (explain why, show uncertainty, let user correct / reject / undo, give alternatives, human help, accessible options)</p></li>
+<li><p><strong>Measure</strong> — How do you prove it works? (task success, errors, time, satisfaction, test with real users, A/B test)</p></li>
+</ol>
+<p><strong>Magic words</strong> to use in answers: <em>user control, transparency, appropriate trust, error recovery, accessibility, privacy, test with real users, iterate.</em></p>
+<h2>The tabs</h2>
+<table><thead><tr><th>Tab</th><th>Main question</th></tr></thead><tbody>
+<tr><td>1. Role of UX in AI</td><td>Does the AI help people reach real goals?</td></tr>
+<tr><td>2. Architecture</td><td>Is it fast and reliable for users?</td></tr>
+<tr><td>3. Web technologies</td><td>Is the front end simple, fast, accessible, safe?</td></tr>
+<tr><td>4. User-Centered Design</td><td>Do we know our real users?</td></tr>
+<tr><td>5. Design Thinking</td><td>Are we solving the right problem?</td></tr>
+<tr><td>6. Multimodal UX</td><td>Is voice / touch / gesture the right choice here?</td></tr>
+<tr><td>7. AR / VR</td><td>Does 3D help, and is it safe and comfortable?</td></tr>
+<tr><td>8. Personalization</td><td>Does it adapt but still give the user control?</td></tr>
+<tr><td>Review</td><td>Practice scenarios with model answers</td></tr>
+</tbody></table>
+<p><strong>Example used in every lecture:</strong> the <em>AI Course Planner</em> and the persona <strong>Chelsea</strong>. Use her in your answers.</p>
+</section>
+
+<section id="ch1" data-title="1. Role of UX in AI">
+<h1>Chapter 1 — Role of UX in AI</h1>
+<h3>1.1 UX in AI</h3>
+<p><strong>What:</strong> UX in AI means people can use the AI's output to reach a real goal. A model with high accuracy is not enough on its own.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>An accurate model can still give a bad experience.</li><li>AI can be wrong while sounding very sure, so users must be able to check, correct and recover.</li><li>We must look at the whole system: the user, the task, the AI, the interface and the organisation's rules.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Two AI apps are both 95% accurate. App A looks nice but gives no reasons. App B explains its choices and lets users reject them. Which is better?</li><li><em>Answer:</em> App B is better, because users can understand why the AI chose something and can correct it when it is wrong.</li></ul>
+<h3>1.2 Why UX matters for AI</h3>
+<p><strong>What:</strong> UX matters in AI because a correct answer is useless if people cannot understand it, trust it the right amount, or fix it when it is wrong.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>If users cannot find or understand a feature, they will not use it.</li><li>The interface decides if the AI output looks like friendly advice or like a strict order.</li><li>Users need ways to check, edit, reject and undo AI results, and to ask a human.</li><li>A wrong answer can cause real harm, for example in health or in study eligibility.</li><li>The same output can be clear for an expert but confusing for a beginner.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> A university has a beautiful AI dashboard. Is it a success?</li><li><em>Answer:</em> Not by itself. If the dashboard makes students accept wrong recommendations without checking, it fails, even if it looks good.</li></ul>
+<h3>1.3 UI vs UX</h3>
+<p><strong>What:</strong> UI is what the user sees and clicks (buttons, menus, layout). UX is the user's whole experience, before, during and after using the product.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>ISO 9241-210 defines UX as the user's feelings and reactions from using, or expecting to use, a product.</li><li>UX includes emotions, trust, comfort and results, not only the screen.</li><li>Don Norman says "no product is an island": every step of the journey must work together.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Students are unhappy with the course system. The team wants to change the colours and buttons. Is that enough?</li><li><em>Answer:</em> No. That only changes the UI. We must study the whole journey, from searching to enrolling to getting help.</li></ul>
+<h3>1.4 The 4Cs of UX design</h3>
+<p><strong>What:</strong> Four rules for a good design: Consistency, Continuity, Context and Complementary.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Consistency:</strong> the same element always works the same way.</li><li><strong>Continuity:</strong> the experience flows smoothly from one step to the next.</li><li><strong>Context:</strong> the content fits the user's goal and situation.</li><li><strong>Complementary:</strong> all parts of the design work well together.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> The "Save" button saves on one page but deletes on another. Which rule is broken?</li><li><em>Answer:</em> Consistency, because the same button must always do the same thing.</li></ul>
+<h3>1.5 Gestalt principles</h3>
+<p><strong>What:</strong> Gestalt principles explain how the brain sees separate items as one group or whole.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>The main principles are Proximity, Similarity, Continuity, Closure, Figure/Ground and Prägnanz (simplicity).</li><li>Items that are close together or look alike are seen as one group.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Course details (time, workload, format) are spread all over the screen. How do you fix it?</li><li><em>Answer:</em> Put them close together in one card (proximity), so users see them as information about one course.</li></ul>
+<h3>1.6 HCI</h3>
+<p><strong>What:</strong> HCI (Human-Computer Interaction) studies how people and computers work together. It has three parts: the user, the computer and the task.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>The system must support the user's task.</li><li>The user's goal is the final measure of good interaction.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> A team starts a project by choosing the newest AI model. What does HCI say?</li><li><em>Answer:</em> Start with the user and their task first, then choose the technology that supports that task.</li></ul>
+<h3>1.7 Myths about good design</h3>
+<p><strong>What:</strong> Four common wrong beliefs about design.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Myth 1: good design is only nice graphics. In fact, it is about what users need to do.</li><li>Myth 2: good design is just common sense. In fact, it needs research and work.</li><li>Myth 3: marketing already knows what users need. In fact, what people say is often different from what they do.</li><li>Myth 4: we can fix the interface at the end. In fact, late changes are expensive.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> A manager says, "Build the AI first, we will make it user-friendly later." Is this good?</li><li><em>Answer:</em> No. Late fixes cost more, and we may build the wrong features. UX work must start at the beginning.</li></ul>
+<h3>1.8 Human-AI collaboration and Human-Centered AI</h3>
+<p><strong>What:</strong> Human-AI collaboration means people and AI work together, each doing what they do best. Human-Centered AI (HCAI) means AI should support people, not replace them.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Humans give judgement, context and empathy. AI gives speed and the power to process a lot of data.</li><li>HCAI keeps humans in control and makes AI transparent, fair and private.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Should the AI Course Planner enrol students in courses automatically?</li><li><em>Answer:</em> No. The AI should suggest courses and explain why, but the student or advisor should make the final decision.</li></ul>
+<h3>1.9 Ethics and privacy</h3>
+<p><strong>What:</strong> AI can make unfair decisions or expose personal data, so it must be designed carefully.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Biased training data can lead to unfair decisions.</li><li>The system should collect only the data it really needs.</li><li>Users should be able to see how a decision was made.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> The Course Planner wants access to students' full personal history. Is that OK?</li><li><em>Answer:</em> No. It should only use data needed for course recommendations, and it should tell students what data it uses.</li></ul>
+<h3>Chapter scenario</h3>
+<p><em>Question:</em> An AI course assistant ignores prerequisites. Students can accept a recommendation with one click and see no explanation. How would you redesign it?</p>
+<p><em>Answer:</em></p>
+<ul><li>Check prerequisites with clear rules and show a warning when a rule is not met.</li><li>Show why each course was recommended.</li><li>Add buttons to compare, reject and edit, and remove the one-click final accept.</li><li>Tell students to confirm important choices with an advisor.</li><li>Test the new design with real students and measure wrong selections and understanding.</li></ul>
+</section>
+
+<section id="ch2" data-title="2. AI Architecture">
+<h1>Chapter 2 — Architecture for User-Centered AI</h1>
+<p>You know the technology from work. In the exam, always connect the architecture to what the <strong>user</strong> feels: speed, reliability and trust.</p>
+<h3>2.1 Architecture shapes the experience</h3>
+<p><strong>What:</strong> An AI system has many parts: the user interface, the backend, the AI model, the data and the infrastructure. All of these parts affect the user's experience.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>A correct answer that arrives too late is still a bad experience.</li><li>AI works inside real workflows, rules and organisations, not alone.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> System A is 98% accurate but takes 10 seconds. System B is 95% accurate and takes 1 second. Which do you choose?</li><li><em>Answer:</em> It depends on the task. For a chat assistant, choose B, because waiting 10 seconds is frustrating. For a high-risk decision, A may be worth the wait. Test with real users to decide.</li></ul>
+<h3>2.2 Turning UX needs into measurable requirements</h3>
+<p><strong>What:</strong> Each thing users expect (fast, reliable, correct) must become a technical requirement that we can measure and test.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>"Fast" needs caching and efficient inference. We test it with latency tests.</li><li>"Reliable" needs backup servers and failover. We test it with availability monitoring.</li><li>"Correct information" needs retrieval from official documents (RAG). We test it by checking answer quality.</li><li>"Accessible" needs accessible interface components. We test it with accessibility tests.</li><li>"Human help" needs a way to pass the user to a person. We test it with usability tests.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Students say the chatbot must be "fast". How do you make this a requirement?</li><li><em>Answer:</em> Write a measurable goal, for example: "95% of answers appear in less than 2 seconds", and check it with latency tests.</li></ul>
+<h3>2.3 Capability vs usability</h3>
+<p><strong>What:</strong> Capability is what the AI can do (predict, recommend, generate). Usability is what the user can do with it (understand, finish the task, fix mistakes, stay in control).</p>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> A model can generate perfect course plans, but students don't use it. Why?</li><li><em>Answer:</em> High capability does not mean high usability. Students may not understand the plans or may not be able to change them.</li></ul>
+<h3>2.4 Requirement types</h3>
+<p><strong>What:</strong> There are four types of requirements.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Functional:</strong> what the system does (for example, answer questions).</li><li><strong>Non-functional:</strong> how well it works (for example, speed and security).</li><li><strong>Operational:</strong> how it is run and maintained.</li><li><strong>Responsible AI:</strong> privacy, fairness, transparency and human oversight.</li></ul>
+<h3>2.5 Five quality words</h3>
+<table><thead><tr><th>Word</th><th>Simple meaning</th></tr></thead><tbody>
+<tr><td>Scalability</td><td>The system can handle more users</td></tr>
+<tr><td>Elasticity</td><td>The system adds or removes resources automatically, for example during exam week</td></tr>
+<tr><td>Reliability</td><td>The system gives correct results every time</td></tr>
+<tr><td>Availability</td><td>The system is online when people need it</td></tr>
+<tr><td>Adaptability</td><td>It is easy to add new models or features</td></tr>
+</tbody></table>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> The chatbot is online, but its answers are wrong because the search service is broken. Is it available? Is it reliable?</li><li><em>Answer:</em> It is available (it is online), but it is not reliable (the results are wrong).</li></ul>
+<h3>2.6 The five layers</h3>
+<p><strong>What:</strong> An AI system has five layers: Presentation (the UI), Application (APIs and workflow), AI processing (the model), Data (databases and documents) and Infrastructure (servers, GPUs, cloud).</p>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Where do the chatbot screen, the LLM and the vector database belong?</li><li><em>Answer:</em> The chatbot screen is the presentation layer, the LLM is the AI processing layer, and the vector database is the data layer.</li></ul>
+<h3>2.7 Design choices and trade-offs</h3>
+<p><strong>What:</strong> Choose the architecture based on real needs, not because it is popular.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>A small app can use one simple, well-organised application. A large app can use microservices.</li><li>Cloud gives more power. Edge (on the device) works offline, protects privacy and has less delay.</li><li>More servers make the system faster, but they cost more money and energy.</li></ul>
+<h3>2.8 Monitoring and evaluation</h3>
+<p><strong>What:</strong> We watch the system with metrics (numbers), logs (event records) and traces (the path of one request).</p>
+<p><strong>Key points:</strong> Always pair a technical measure with a user measure.</p>
+<table><thead><tr><th>Technical measure</th><th>User measure</th></tr></thead><tbody>
+<tr><td>Latency</td><td>Does it feel fast?</td></tr>
+<tr><td>Availability</td><td>Can users get in?</td></tr>
+<tr><td>Error rate</td><td>Are tasks interrupted?</td></tr>
+<tr><td>Answer quality</td><td>Are answers useful?</td></tr>
+</tbody></table>
+<h3>Chapter scenario</h3>
+<p><em>Question:</em> A university with 20,000 students wants an AI assistant for rules and registration. Usage is very high during registration week. How would you design and evaluate it?</p>
+<p><em>Answer:</em></p>
+<ul><li>Use retrieval from current official documents and show the source of each answer.</li><li>Add automatic scaling for busy weeks, and caching for common questions.</li><li>Make the interface accessible, and let students pass to a human for difficult cases.</li><li>Measure technical results (latency, availability) and user results (task success, satisfaction).</li></ul>
+</section>
+
+<section id="ch3" data-title="3. Web Technologies">
+<h1>Chapter 3 — Web Technologies and UX</h1>
+<p>You know the technology from work. The exam wants one main idea: <strong>new technology does not automatically give a better user experience.</strong></p>
+<h3>3.1 Choose technology by user need</h3>
+<p><strong>What:</strong> We should choose the technology that best fits what users need, not the newest or most popular one.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>A simple HTML page that loads fast can be better than a slow React app.</li><li>More JavaScript means more complexity, slower loading and more bugs.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Website A is plain HTML and loads fast. Website B uses React but is slow and needs many clicks. Which gives better UX?</li><li><em>Answer:</em> Website A, because users get the information faster and more easily. Modern technology does not guarantee better UX.</li></ul>
+<h3>3.2 The browser cannot be trusted</h3>
+<p><strong>What:</strong> Users can see and change everything in the browser, so important checks must run on the server.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Security checks, eligibility rules and secret keys must be on the server.</li><li>AI text must be shown as plain text, not as HTML, to prevent attacks (XSS).</li><li>Collect only the data the task needs (data minimisation).</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Where should the system check if a student meets course prerequisites?</li><li><em>Answer:</em> On the server, because a user could change a check that runs only in the browser.</li></ul>
+<h3>3.3 Forms and error messages</h3>
+<p><strong>What:</strong> Good forms help users avoid mistakes and explain how to fix them.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>The error message should say what is wrong and how to fix it.</li><li>The form should keep the correct answers the user already typed.</li><li>A correctly filled form does not mean the AI recommendation is correct.</li></ul>
+<h3>3.4 Accessibility</h3>
+<p><strong>What:</strong> Accessibility means everyone can use the website, including people with disabilities.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Use semantic HTML (real buttons and headings) so screen readers understand the page.</li><li>Follow the WCAG standard: good colour contrast, visible focus, full keyboard use.</li><li>Use responsive design so the page works on every screen size.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> A blind student cannot use the course list. What do you change?</li><li><em>Answer:</em> Use semantic HTML and proper labels so the screen reader can read the list, and make every action work with the keyboard.</li></ul>
+<h3>3.5 Rendering options</h3>
+<p><strong>What:</strong> Rendering is where and when the web page is built.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Static (SSG):</strong> the page is built before users visit. It is very fast.</li><li><strong>Server-side (SSR):</strong> the server builds the page for each request.</li><li><strong>Client-side (SPA):</strong> the browser builds the page. It is very interactive but can be slower to start.</li><li>We can mix them, depending on each page's needs.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Does a page that only shows admission rules need a full single-page app?</li><li><em>Answer:</em> No. A static page is faster and simpler. Use interactive parts only where users need them, for example for course filtering.</li></ul>
+<h3>3.6 Measuring real speed (Core Web Vitals)</h3>
+<p><strong>What:</strong> Three numbers that show how fast and stable a page feels to users.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>LCP:</strong> how fast the main content appears.</li><li><strong>INP:</strong> how fast the page reacts after a click or tap.</li><li><strong>CLS:</strong> how much the content moves unexpectedly (moving content causes wrong clicks).</li></ul>
+<h3>3.7 Progressive Web App (PWA)</h3>
+<p><strong>What:</strong> A web app that users can install and that can work offline.</p>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Students often lose internet on campus. How can they still see their timetable?</li><li><em>Answer:</em> Make the site a PWA, so the saved timetable works offline.</li></ul>
+<h3>3.8 Streaming AI answers</h3>
+<p><strong>What:</strong> Streaming shows the AI answer word by word while it is being written.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Streaming makes the answer feel faster.</li><li>The interface must show clearly when the answer is still being written and when it is finished.</li><li>If the stream stops, the interface must say the answer is incomplete and offer a retry button.</li></ul>
+<h3>Chapter scenario</h3>
+<p><em>Question:</em> A university website needs course information, interactive course planning and AI recommendations. It must work on phones, on slow networks and for disabled users. What do you recommend?</p>
+<p><em>Answer:</em></p>
+<ul><li>Use static pages for course information, because they are fast and simple.</li><li>Use small interactive components only for course planning.</li><li>Stream AI recommendations, with an explanation, a clear status and a retry option.</li><li>Use semantic HTML and WCAG rules, a responsive layout, and offline support for slow networks.</li><li>Keep rules and secrets on the server, and measure LCP, INP, CLS and task success.</li></ul>
+</section>
+
+<section id="ch4" data-title="4. User-Centered Design">
+<h1>Chapter 4 — User-Centered Design (UCD)</h1>
+<h3>4.1 What UCD is</h3>
+<p><strong>What:</strong> User-Centered Design means the real users' needs, goals and situation guide every design decision, from the start to the end of the project.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Decisions are based on evidence (interviews, observation, tests), not on the team's guesses.</li><li>Real users take part during the whole project.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> The team thought the AI course assistant was easy to use, but after launch students were confused. What went wrong?</li><li><em>Answer:</em> The team trusted its own opinion. It should have studied real students and run usability tests before launch.</li></ul>
+<h3>4.2 Usability</h3>
+<p><strong>What:</strong> Usability is how well users can reach their goal with the system. We measure it in three ways.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Effectiveness:</strong> did the user complete the task correctly?</li><li><strong>Efficiency:</strong> how much time and effort did it take?</li><li><strong>Satisfaction:</strong> how did the user feel about it?</li><li>We also count <strong>errors</strong> and how easily users recover from them.</li></ul>
+<h3>4.3 ISO 9241-210: six principles</h3>
+<p><strong>What:</strong> The international standard for human-centred design has six principles.</p>
+<ol><li>Understand the users, their tasks and their environment.</li><li>Involve users throughout the project.</li><li>Use user testing to guide and improve the design.</li><li>Repeat the process (iterate).</li><li>Design the whole user experience, not only the screen.</li><li>Use a team with different skills (design, technology, research).</li></ol>
+<h3>4.4 The UCD cycle</h3>
+<p><strong>What:</strong> UCD is a repeating cycle: understand the context, write the requirements, create designs, test them with users, then repeat.</p>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Why is UCD a cycle and not a one-time process?</li><li><em>Answer:</em> Each test gives new information. Fixing problems early is cheaper, and every change can create new problems that need testing again.</li></ul>
+<h3>4.5 Context of use</h3>
+<p><strong>What:</strong> Context of use describes who uses the system, for which task, and in which environment.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>User:</strong> skills, experience, language, expectations.</li><li><strong>Task:</strong> the goal, the steps, and how serious an error would be.</li><li><strong>Environment:</strong> device, internet connection, noise, rules of the organisation.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> The AI suggests a course that is correct in general but meets during Chelsea's working hours. What did the design miss?</li><li><em>Answer:</em> It missed Chelsea's context of use: she works full-time and can only study in the evenings.</li></ul>
+<h3>4.6 User research methods</h3>
+<p><strong>What:</strong> Methods to learn about users: interviews, focus groups, surveys, diary studies, card sorting, field studies, observation and usability tests.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Qualitative research</strong> explains why and how people act.</li><li><strong>Quantitative research</strong> counts and measures (how many, how often).</li><li><strong>Triangulation</strong> means using several methods and comparing the results.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Which methods would you use to understand how students choose courses?</li><li><em>Answer:</em> Interviews to learn why they choose, observation to see what they really do, and a survey to see how common the problems are.</li></ul>
+<h3>4.7 Good interview questions</h3>
+<p><strong>What:</strong> Good interview questions are open and do not push the person toward an answer.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Ask about real past actions, not opinions about ideas.</li><li>Bad question: "Would an AI chatbot make course selection easier?"</li><li>Good question: "How do you choose your courses now?"</li></ul>
+<h3>4.8 Observation</h3>
+<p><strong>What:</strong> Observation (contextual inquiry) means watching users do real tasks in their real environment.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>It shows workarounds and problems that users forget to mention in interviews.</li><li>First write down what users do. Only after that, think about why they do it.</li></ul>
+<h3>4.9 Research ethics</h3>
+<p><strong>What:</strong> Research with people must be fair and safe.</p>
+<p><strong>Key points:</strong> Participants must give informed consent and take part voluntarily. Collect only needed data, protect privacy, and use anonymous data when possible.</p>
+<h3>4.10 Persona, empathy map and journey map</h3>
+<p><strong>What:</strong> Three tools that help the team understand users.</p>
+<table><thead><tr><th>Tool</th><th>What it shows</th></tr></thead><tbody>
+<tr><td><strong>Persona</strong></td><td>A realistic profile of one user group, based on research: goals, behaviour, motivations, problems</td></tr>
+<tr><td><strong>Empathy map</strong></td><td>What the user says, thinks, does and feels</td></tr>
+<tr><td><strong>Journey map</strong></td><td>The steps a user takes over time, with feelings and problems at each step</td></tr>
+</tbody></table>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Can we assume all international students have the same needs as Chelsea?</li><li><em>Answer:</em> No. A persona represents one user group only. Other students may have different needs, so we need more personas or more research.</li></ul>
+<h3>4.11 Scenarios and task flows</h3>
+<p><strong>What:</strong> A scenario is a short story of a user trying to reach a goal. A task flow shows the steps and decisions needed to finish a task.</p>
+<p><strong>Key points:</strong> A good task flow also shows errors and the ways users can fix them.</p>
+<h3>4.12 Usability testing</h3>
+<p><strong>What:</strong> In usability testing, real users try real tasks, and we watch where the design causes problems. We test the design, not the user.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Do not tell users which button to press, and do not give hints.</li><li>Ask neutral questions and record success, time, errors and satisfaction.</li><li>For AI, also check if users understand the recommendation and trust it the right amount.</li></ul>
+<h3>4.13 Fixing the most serious problems first</h3>
+<p><strong>What:</strong> After testing, fix the problems that hurt users most.</p>
+<p><strong>Key points:</strong> Problem severity depends on how often it happens, how much it blocks the task, and how hard it is to recover. Fix wrong decisions and blocked tasks before small visual issues, then test again.</p>
+<h3>Chapter scenario</h3>
+<p><em>Question:</em> After launch, students do not understand the AI course recommendations. What should the team have done, and what should it do now?</p>
+<p><em>Answer:</em></p>
+<ul><li>It should have interviewed and observed real students before building.</li><li>It should have created personas (like Chelsea) and journey maps.</li><li>It should have built a prototype and run usability tests before launch.</li><li>Now it should measure understanding, task success and errors, fix the most serious problems, and test again.</li></ul>
+</section>
+
+<section id="ch5" data-title="5. Design Thinking">
+<h1>Chapter 5 — Design Thinking for AI</h1>
+<h3>5.1 What Design Thinking is</h3>
+<p><strong>What:</strong> Design Thinking is a human-centred way to solve unclear problems. We understand people first, and only then choose features or technology.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>It is based on empathy, repeated testing and teamwork.</li><li>UCD gives evidence about users. Design Thinking helps the team explore and choose solutions. They work together.</li></ul>
+<h3>5.2 The stages</h3>
+<p><strong>What:</strong> Design Thinking has five stages, and the team can go back to any stage when needed: Empathize, Define, Ideate, Prototype, Test.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Empathize:</strong> learn about users' goals, problems and situation.</li><li><strong>Define:</strong> write the real problem clearly.</li><li><strong>Ideate:</strong> create many possible solutions.</li><li><strong>Prototype:</strong> build quick, simple versions.</li><li><strong>Test:</strong> try the versions with real users.</li></ul>
+<h3>5.3 Double Diamond</h3>
+<p><strong>What:</strong> The Double Diamond is a process with two parts. In each part, the team first opens up (many ideas) and then narrows down (best choice).</p>
+<p><strong>Key points:</strong></p>
+<ul><li>First diamond, the <strong>problem</strong>: Discover, then Define.</li><li>Second diamond, the <strong>solution</strong>: Develop, then Deliver.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Why use the Double Diamond?</li><li><em>Answer:</em> It makes sure we first find the right problem, and only then build the solution. This saves time and money.</li></ul>
+<h3>5.4 Is AI really needed?</h3>
+<p><strong>What:</strong> Design Thinking asks if AI is the right solution at all, before building it.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>When a decision follows clear rules, simple rules work better than AI.</li><li>When patterns are too complex to write as rules, AI can help.</li><li>A model with high accuracy does not automatically give a good experience.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Should AI decide if a student meets course prerequisites?</li><li><em>Answer:</em> No. Prerequisites are clear rules, so simple rule checks are more reliable and easier to explain.</li></ul>
+<h3>5.5 Empathize</h3>
+<p><strong>What:</strong> In the Empathize stage, we learn the user's real goal and situation.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>What users ask for is not always what they need. A student asking for a chatbot may really need clear guidance.</li><li>A small study shows a possible problem, not a fact about everyone. If 9 of 12 students have a problem, we cannot say 75% of all students have it.</li><li>Users expect trust, clear explanations, privacy and control.</li></ul>
+<h3>5.6 Define: POV and HMW</h3>
+<p><strong>What:</strong> In the Define stage, we write the real problem as a POV statement and then turn it into HMW questions.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>POV (Point of View) = User + Need + Insight.</strong> Example: "Chelsea, a busy working parent, needs courses that fit her evenings, because course pages do not show the real workload."</li><li><strong>HMW (How Might We) question.</strong> Example: "How might we help working students find courses that fit their free time?"</li><li>Do not write the problem as a solution, such as "we need to build an LLM".</li></ul>
+<h3>5.7 Ideate</h3>
+<p><strong>What:</strong> In the Ideate stage, the team creates many ideas first and judges them later. AI is only one possible idea.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Brainstorming:</strong> the group shares ideas together.</li><li><strong>Brainwriting:</strong> each person writes ideas alone first, so quiet people also contribute.</li><li><strong>Crazy Eights:</strong> each person draws 8 quick ideas in 8 minutes.</li><li>Judge ideas by four questions: Do users want it? Can we build it? Can the organisation keep it running? Is it safe, fair and private?</li></ul>
+<h3>5.8 Prototype</h3>
+<p><strong>What:</strong> A prototype is a quick, simple version of an idea, built to learn, not to impress.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>An AI prototype does not need a real model. We can fake the AI answers.</li><li>Test both good cases and bad cases, such as wrong or old information.</li><li>Write down which parts are fake, so we do not draw wrong conclusions.</li><li><strong>Wizard-of-Oz:</strong> a hidden person plays the role of the AI. Participants must agree to the study and be told the truth after it.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> We have no AI model yet. How can we test if students like AI course recommendations?</li><li><em>Answer:</em> Use a Wizard-of-Oz prototype: a person creates the recommendations behind the screen while students use the interface.</li></ul>
+<h3>5.9 Test</h3>
+<p><strong>What:</strong> In the Test stage, we check our ideas with real users as early as possible.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>To check understanding, ask users: "Why was this course recommended to you?"</li><li>Watch what users do, not only what they say they like.</li><li>The AI's top recommendation is not automatically the correct choice. It must meet all of the user's must-have needs.</li><li>Users' trust should match how reliable the AI really is.</li></ul>
+<h3>5.10 Iterate</h3>
+<p><strong>What:</strong> To iterate means to improve the design step by step, based on test results.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Fix the most harmful problems first.</li><li>Treat each change as a new idea to test.</li><li>Sometimes the team must go back and define the problem again.</li><li>The best AI is not the most advanced one. It is the one that solves a real user problem and improves with evidence.</li></ul>
+<h3>Chapter scenario</h3>
+<p><em>Question:</em> The AI Course Planner gives accurate recommendations, but users still choose courses that clash with their schedules. Which stage do you go back to first?</p>
+<p><em>Answer:</em></p>
+<ul><li>Go back to Empathize and Test: watch real users to find out why they choose clashing courses.</li><li>Then Define the real problem. The problem is probably unclear schedule information, not the AI model.</li><li>New ideas: a clear "fits your schedule" label, a warning when courses clash, and a filter by free time.</li><li>Test again and check if clashes go down.</li></ul>
+</section>
+
+<section id="ch6" data-title="6. Multimodal UX">
+<h1>Chapter 6 — Multimodal UX (Voice, Touch, Gesture)</h1>
+<h3>6.1 What multimodal means</h3>
+<p><strong>What:</strong> A multimodal system lets users interact in more than one way, for example by voice, touch, gesture or text, and it can answer with screen, sound or vibration.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>More ways to interact do not automatically give a better experience.</li><li>We must choose the right way for each task and place, and make the different ways work well together.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> If the Course Planner offers voice, touch and gesture, will it automatically be easier to use?</li><li><em>Answer:</em> No. Each way must fit the task and the situation, work reliably, and connect smoothly with the others.</li></ul>
+<h3>6.2 Which mode for which situation</h3>
+<p><strong>What:</strong> Each mode is good in some situations and bad in others. There is no single best mode.</p>
+<table><thead><tr><th></th><th>Voice</th><th>Touch</th><th>Gesture (no touching)</th></tr></thead><tbody>
+<tr><td>Good for</td><td>Long or complex requests, when hands are busy</td><td>Choosing exactly one item on screen</td><td>Public kiosks, shared screens</td></tr>
+<tr><td>Bad when</td><td>The place is noisy or private, or the list is long</td><td>Hands are busy</td><td>Light is bad, arms get tired, or a move is accidental</td></tr>
+</tbody></table>
+<h3>6.3 Voice design</h3>
+<p><strong>What:</strong> A voice interface turns speech into text, finds the user's meaning, does the action, and answers with a spoken voice.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Spoken answers must be short and clear.</li><li>The system should show that it is listening, and let users interrupt it.</li><li>If the system is not sure, it should ask the user to explain. If it fails again and again, it should offer touch or typing instead.</li><li>Important actions need a confirmation.</li><li>Speech recognition quality is measured with WER (word error rate), together with task success.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> The voice assistant says, "The system has identified twelve course recommendations corresponding to your query parameters." How do you improve it?</li><li><em>Answer:</em> Make it short and natural: "I found three online courses for your evenings. Do you want to hear them or see them on screen?"</li></ul>
+<h3>6.4 Touch design</h3>
+<p><strong>What:</strong> Touch design means users tap, swipe, drag or pinch directly on the screen.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Buttons must be big, with space between them. Small or far buttons are slower and cause mistakes (Fitts' Law).</li><li>The screen must react quickly (visual change or vibration), so users do not tap twice.</li><li>Important actions must not be hidden behind gestures, and there should be an Undo option.</li><li>If an action needs dragging, also give simple buttons, such as "Move up" and "Move down".</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Students delete courses by mistake with a hidden swipe. How do you fix it?</li><li><em>Answer:</em> Show a visible "Remove" button and add an "Undo" option after removing.</li></ul>
+<h3>6.5 Gesture design</h3>
+<p><strong>What:</strong> In gesture design, a camera or sensor reads hand or body movements without the user touching the screen.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Use only a few simple gestures that are comfortable to repeat.</li><li>Show the user when a gesture has been recognised.</li><li>Ask for confirmation before risky actions.</li><li>Always offer another way, such as a button, for users who cannot use gestures.</li><li>Common problems are bad light, tired arms, accidental movements and camera privacy.</li></ul>
+<h3>6.6 Combining inputs (fusion)</h3>
+<p><strong>What:</strong> Input fusion means the system uses several inputs together to understand what the user wants.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Example: the user says "Choose this one" while pointing at a course.</li><li>If the inputs disagree (the user says "Course A" but taps Course B), the system should not guess for important actions. It should show both and let the user choose.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> A student says "Enrol me in Course A" but taps Course B. What should the system do?</li><li><em>Answer:</em> It should not enrol automatically. It should show both courses and ask the student to confirm the right one.</li></ul>
+<h3>6.7 Switching modes and fallback</h3>
+<p><strong>What:</strong> Users should be able to change the way they interact in the middle of a task, without losing their progress.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>The system must remember what the user already did, so they do not have to repeat it.</li><li>If one mode fails (for example, speech in a noisy room), the system should offer another mode.</li><li>The same actions must work the same way on every device.</li><li>Private data must not appear on public or shared screens.</li></ul>
+<h3>6.8 Accessibility and privacy</h3>
+<p><strong>What:</strong> Every important task must be possible for people with different abilities, and users must know when the microphone or camera is on.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Every important task must work without voice, without sound and without gestures.</li><li>Offering three modes does not automatically make an app accessible.</li><li>Show a clear signal when the microphone or camera is active.</li></ul>
+<h3>6.9 Evaluating multimodal UX</h3>
+<p><strong>What:</strong> We test each mode and the combination of modes with real users.</p>
+<p><strong>Key points:</strong> Measure task success for each mode, recognition errors, the time needed including fixing mistakes, and how well switching and fallback work.</p>
+<h3>Chapter scenario</h3>
+<p><em>Question:</em> A student starts searching by voice on a phone, then compares courses by touch on a tablet. The voice assistant selected the wrong course. How do you design this?</p>
+<p><em>Answer:</em></p>
+<ul><li>Keep the session in sync across devices, using the same account and the same progress.</li><li>Show what the AI understood ("You said Course A") and ask for confirmation before selecting.</li><li>Offer Undo and easy correction by touch.</li><li>If speech fails twice, offer touch or typing.</li><li>Measure wrong selections, time to fix mistakes, and task success on both devices.</li></ul>
+</section>
+
+<section id="ch7" data-title="7. AR and VR">
+<h1>Chapter 7 — AR and VR</h1>
+<h3>7.1 AR, VR, MR and XR</h3>
+<p><strong>What:</strong> AR adds digital information on top of the real world. VR replaces the real world with a fully computer-made world. MR lets real and digital objects interact. XR is the name for all of them together.</p>
+<table><thead><tr><th></th><th>AR</th><th>VR</th></tr></thead><tbody>
+<tr><td>Main challenge</td><td>Placing digital content exactly on real objects</td><td>Keeping users comfortable and feeling "inside"</td></tr>
+<tr><td>Can the user see the real world?</td><td>Yes</td><td>No</td></tr>
+<tr><td>University example</td><td>Campus navigation</td><td>Laboratory training</td></tr>
+</tbody></table>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> A university wants to train students on expensive lab equipment. Do you recommend AR or VR?</li><li><em>Answer:</em> Use VR so students can practise safely without damaging the equipment. Use AR later to guide them on the real machine. Often a mix of both (hybrid) is best.</li></ul>
+<h3>7.2 Key technical words</h3>
+<p><strong>What:</strong> A few technical terms that the exam may use.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>3DoF:</strong> the device tracks only head turning. <strong>6DoF:</strong> it tracks turning and also moving (walking).</li><li><strong>SLAM:</strong> the device builds a map of the room and knows its own position in it at the same time.</li><li><strong>Latency:</strong> the delay between a movement and the screen update. High latency causes discomfort.</li><li><strong>Field of view:</strong> how wide an area the user can see.</li></ul>
+<h3>7.3 AR design</h3>
+<p><strong>What:</strong> Good AR design shows the right information at the right real-world place.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Anchors</strong> keep digital labels attached to the correct real object.</li><li><strong>Registration</strong> means the digital object lines up exactly with the real object.</li><li><strong>Occlusion</strong> means real objects correctly hide digital objects that are behind them.</li><li>Too much information causes clutter. Show details only for what the user is looking at.</li><li>Give step-by-step guidance, never hide real dangers, and mark the difference between AI suggestions and official instructions.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> An AR arrow points to the wrong switch on a machine. Is this a graphics problem, a usability problem or a safety problem?</li><li><em>Answer:</em> It is mainly a safety problem, because the user may press the wrong switch and get hurt. It is also a usability problem.</li></ul>
+<h3>7.4 VR design</h3>
+<p><strong>What:</strong> Good VR design gives users a clear task in a virtual space that is easy to understand.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Immersion</strong> is how well the technology (headset, graphics) creates the virtual world. It is about the technology.</li><li><strong>Presence</strong> is the user's feeling of "really being there". It is about the user's experience.</li><li>Use landmarks and clear paths so users do not get lost.</li><li>Give a clear start, clear progress and a clear way to exit.</li></ul>
+<h3>7.5 Moving in VR (locomotion)</h3>
+<p><strong>What:</strong> Locomotion is how users move around inside VR.</p>
+<table><thead><tr><th>Way to move</th><th>Good</th><th>Bad</th></tr></thead><tbody>
+<tr><td>Joystick</td><td>Smooth, continuous movement</td><td>Can make users feel sick</td></tr>
+<tr><td>Teleport</td><td>Comfortable</td><td>Users can lose their sense of direction</td></tr>
+<tr><td>Real walking</td><td>Natural</td><td>Needs a lot of physical space</td></tr>
+</tbody></table>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Some students feel sick with joystick movement. Others get lost with teleporting. What do you do?</li><li><em>Answer:</em> Offer both options and let each student choose. Add comfort settings, show clear landmarks, and test with real students.</li></ul>
+<h3>7.6 Selecting objects in VR</h3>
+<p><strong>What:</strong> Users choose virtual objects by pointing a ray, by grabbing with their hand, or by looking at them.</p>
+<p><strong>Key points:</strong> Show clearly which objects can be picked up, and help with precise tasks, for example by snapping objects into the correct place.</p>
+<h3>7.7 AI in AR and VR</h3>
+<p><strong>What:</strong> AI can recognise objects and give guidance inside AR and VR.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Augmentation</strong> means AI helps the human do the task. <strong>Automation</strong> means AI does the task alone. The goal is good teamwork, not maximum automation.</li><li>AI can be wrong, so the system should show how sure it is.</li><li>If the AI is not sure, the user should check before the system shows instructions.</li><li>Important actions need confirmation, and users must be able to stop at any time.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> The AR assistant is not sure which machine part it sees. What should it do?</li><li><em>Answer:</em> It should tell the technician it is not sure and ask them to confirm the part before showing repair steps.</li></ul>
+<h3>7.8 Comfort, safety, accessibility and privacy</h3>
+<p><strong>What:</strong> AR and VR must be comfortable, safe, usable by everyone, and respect privacy.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Cybersickness</strong> is nausea, dizziness or eye strain. It happens when the eyes see movement but the body does not feel it.</li><li>Users can hit real objects while wearing a headset. AR must never hide real dangers.</li><li>Do not require complex body movement. Allow a seated mode and other input options.</li><li>Devices record the room and the user's head, hand and eye movements. This data can reveal personal information.</li></ul>
+<h3>7.9 Evaluating AR and VR</h3>
+<p><strong>What:</strong> We measure task success, time, position accuracy, the feeling of presence, and discomfort.</p>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> A new VR lab raises task success from 70% to 90%, but more students feel sick. Is it better?</li><li><em>Answer:</em> We cannot simply say it is better. It is a trade-off, so we must investigate and try to reduce the sickness while keeping the higher success.</li></ul>
+<h3>Chapter scenario</h3>
+<p><em>Question:</em> Design an intelligent lab training system for science students.</p>
+<p><em>Answer:</em></p>
+<ul><li>Use VR to practise dangerous or expensive steps safely, and AR to guide students on the real equipment.</li><li>Use AI to recognise equipment and give hints, but show how sure it is and ask students to check when it is unsure.</li><li>Offer teleport and a seated mode for comfort, and keep sessions short.</li><li>Offer other input methods and captions for accessibility.</li><li>Measure task success, errors, discomfort and presence, and test with many different students.</li></ul>
+</section>
+
+<section id="ch8" data-title="8. Personalization & Research">
+<h1>Chapter 8 — Personalization and New UX Research</h1>
+<p>This is the most important chapter for scenario questions.</p>
+<h3>8.1 Personalization vs customization</h3>
+<p><strong>What:</strong> In personalization, the system changes itself automatically based on the user's behaviour. In customization, the user changes the settings by hand.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Personalization example: Spotify creates a playlist from what you listen to.</li><li>Customization example: you choose dark mode or set your own filters.</li><li>The best design uses both: the user sets the limits, and the AI ranks the options inside those limits.</li><li>The risk of personalization is a "filter bubble": the user only sees more of the same things.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Should the Course Planner learn only from behaviour, or let students set what they want?</li><li><em>Answer:</em> Both. Chelsea should set her limits (online, at most 6 hours a week), and the AI should rank courses that fit those limits.</li></ul>
+<h3>8.2 Explicit vs implicit preferences</h3>
+<p><strong>What:</strong> Explicit preferences are what the user says directly. Implicit preferences are what the system guesses from the user's behaviour.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>Explicit preferences are clear, but they can become old.</li><li>Implicit preferences are up to date, but they can be wrong. For example, a click does not always mean real interest.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Chelsea said "online only" but often clicks on campus courses. What should the AI do?</li><li><em>Answer:</em> Respect what she said (online only). Treat the clicks only as a weak signal, and perhaps ask her if her needs have changed.</li></ul>
+<h3>8.3 User control: Inspect, Modify, Override, Reset</h3>
+<p><strong>What:</strong> Users need four kinds of control over personalization.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Inspect:</strong> the user can see what the AI believes about them.</li><li><strong>Modify:</strong> the user can correct wrong information.</li><li><strong>Override:</strong> the user can reject a recommendation.</li><li><strong>Reset:</strong> the user can clear the personalization and start again.</li><li>The controls must really change the results, and the system must show that the change worked.</li></ul>
+<h3>8.4 Hard constraints vs soft preferences</h3>
+<p><strong>What:</strong> Hard constraints are must-haves, and they decide which items are allowed. Soft preferences are nice-to-haves, and they decide the order of the allowed items.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>First remove every item that breaks a hard constraint. Then rank the rest.</li><li>Never recommend an item that breaks a must-have, even if its score is high.</li><li>A guess, like "maybe she likes Python", must never become a hard rule.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Course A has the highest relevance score, but it is on campus. Chelsea needs online courses only. Should Course A be the top recommendation?</li><li><em>Answer:</em> No. Online-only is a hard constraint, so Course A is not allowed. Only online courses of 6 hours or less should be ranked.</li></ul>
+<h3>8.5 Recommender basics</h3>
+<p><strong>What:</strong> Recommender systems suggest items in three main ways.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Content-based:</strong> suggests items similar to what the user liked before.</li><li><strong>Collaborative filtering:</strong> suggests what similar users liked.</li><li><strong>Cold start:</strong> a new user or item has no data yet. A solution is to ask a few questions at the start.</li></ul>
+<h3>8.6 Changing preferences (drift)</h3>
+<p><strong>What:</strong> Preference drift means a user's needs change over time, for example after a new job or a family change.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>A clear request made now is more important than old history.</li><li>User profiles must stay up to date and easy to edit.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Chelsea changed jobs and now has free mornings, but the AI still shows only evening courses. Why, and how do you fix it?</li><li><em>Answer:</em> The AI relies on old data (preference drift). Let her update her schedule easily, and give recent information more weight.</li></ul>
+<h3>8.7 Feedback and exposure bias</h3>
+<p><strong>What:</strong> Exposure bias means users can only click on items the system showed them, so click counts can be misleading.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>160 clicks from 800 views is 20%. 10 clicks from 50 views is also 20%. The interest is the same.</li><li>Compare click rates, not raw click numbers.</li><li>Feedback should change the system clearly. For example, "Too many hours" should make the workload limit stricter.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> Business courses got 160 clicks and cybersecurity courses got 10 clicks. Does the student prefer business?</li><li><em>Answer:</em> Not necessarily. Business was shown 800 times and cybersecurity only 50 times. Both have a 20% click rate, so the interest is the same.</li></ul>
+<h3>8.8 Exploration vs exploitation</h3>
+<p><strong>What:</strong> Exploitation means showing what we already know the user likes. Exploration means showing something new to learn more about the user.</p>
+<p><strong>Key points:</strong> Too much exploitation creates a filter bubble. Too much exploration makes recommendations less useful. We need a balance.</p>
+<h3>8.9 Measuring recommendations</h3>
+<p><strong>What:</strong> We measure both the quality of the recommendation list and the results for users.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Precision@K:</strong> how many of the top K items are relevant.</li><li><strong>NDCG:</strong> like Precision, but it also rewards putting the best items at the top.</li><li>Also measure variety, rule compliance, and user results such as task success, time and satisfaction.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> After a redesign, relevance and variety go up, but choosing a course now takes 4 minutes instead of 3. Should we launch?</li><li><em>Answer:</em> It is mostly better, but we should investigate before a full launch. For example, run an A/B test and check if the extra minute bothers users.</li></ul>
+<h3>8.10 Researching adaptive AI</h3>
+<p><strong>What:</strong> AI that changes over time needs special research methods.</p>
+<p><strong>Key points:</strong></p>
+<ul><li>AI can give different answers to the same question, so we test many times and record the model version and prompt.</li><li>We evaluate whole sessions, not single answers.</li><li><strong>A/B test:</strong> users are split randomly into two groups, the goal is written first, and the measures are chosen before the test.</li><li>Comparing "before and after" does not prove the cause, because other things can change too.</li><li><strong>Longitudinal study:</strong> we follow the same users over a long time.</li><li><strong>Telemetry:</strong> we log user actions, but only the data we really need.</li></ul>
+<h3>8.11 New trends in UX research</h3>
+<p><strong>What:</strong> Four new topics in AI-related UX research.</p>
+<p><strong>Key points:</strong></p>
+<ul><li><strong>Synthetic users</strong> are AI-made test participants. They can give early ideas, but they can never replace real users.</li><li><strong>AI-assisted analysis:</strong> AI can group interview notes, but a human must check the results against the real data.</li><li><strong>Agentic AI</strong> does multi-step tasks for the user. The user must approve important steps.</li><li><strong>Generative UI</strong> means AI builds the screen itself. We must test if this really helps users.</li></ul>
+<p><strong>Exam example:</strong></p>
+<ul><li><em>Question:</em> An AI agent completes 9 steps correctly, then submits a course registration without asking. Is the task a success?</li><li><em>Answer:</em> No. The final action was not approved, so the whole task fails. Important steps must need the user's approval.</li></ul>
+<h3>Chapter scenario</h3>
+<p><em>Question:</em> The Course Planner learns only from clicks. Chelsea gets on-campus courses and too many business courses. How do you improve it?</p>
+<p><em>Answer:</em></p>
+<ul><li>Ask Chelsea for her must-haves (online, at most 6 hours a week) and remove courses that break them.</li><li>Use clicks only as weak signals, and compare click rates instead of raw clicks.</li><li>Add Inspect, Modify, Override and Reset controls, plus a "Why this course?" explanation.</li><li>Add some variety (exploration) to avoid a filter bubble.</li><li>Test with an A/B test, measuring if an eligible course is found, satisfaction and selection time.</li></ul>
+</section>
+
+<section id="review" data-title="Review: Formulas & Questions">
+<h1>Review — Practice Scenarios</h1>
+<p>Each answer follows the template: <strong>User → Problem → AI risk → Design fix → Measure.</strong> Cover the answer, try it yourself, then compare.</p>
+<h3>1. Same accuracy, different design</h3>
+<p><strong>Two AI apps, both 95% accurate. A is beautiful but gives no explanation and no way to correct. B is simple, explains, and lets users reject. Which is better?</strong></p>
+<ul><li><strong>B.</strong> Accuracy is the same, so UX decides.</li><li>B gives <strong>transparency</strong> (users know why) and <strong>control</strong> (users can fix errors).</li><li>A can make users trust wrong answers.</li><li>Measure: task success, wrong decisions, trust.</li></ul>
+<h3>2. Fast or accurate?</h3>
+<p><strong>System A: 98% accurate, 10 seconds. System B: 95%, 1 second. Which do you choose?</strong></p>
+<ul><li><strong>It depends on the task.</strong> Chat or quick lookups → B (speed matters).</li><li>High-risk decisions (health, eligibility) → A may be worth the wait.</li><li>Improve both: show progress while waiting; let users check sources.</li><li>Measure with real users: satisfaction, task success, errors.</li></ul>
+<h3>3. Users don't understand the AI</h3>
+<p><strong>After launch, students can't tell if AI course picks meet prerequisites.</strong></p>
+<ul><li><strong>User:</strong> students, many types (use personas).</li><li><strong>Problem:</strong> no explanation, no prerequisite check.</li><li><strong>Fix:</strong> check prerequisites with <strong>rules</strong>, show "why this course", warnings, compare / reject buttons, link to an advisor.</li><li><strong>Process:</strong> should have done research and <strong>usability tests before launch</strong>; now iterate.</li><li><strong>Measure:</strong> understanding ("why was this suggested?"), wrong selections.</li></ul>
+<h3>4. Accurate model, wrong choices</h3>
+<p><strong>Recommendations are accurate, but users still pick courses that clash with their schedule.</strong></p>
+<ul><li>The model is not the problem — go back to <strong>Empathize/Test</strong> to see why, then <strong>Define</strong>.</li><li>Fix: clear schedule-fit label, clash warning, time filter.</li><li>Measure: fewer clashes.</li></ul>
+<h3>5. Hard rule broken</h3>
+<p><strong>Course A has the highest relevance score but is on campus. Chelsea needs online only. Should A be the top pick?</strong></p>
+<ul><li><strong>No.</strong> Must-haves (online, ≤ 6 h) <strong>filter first</strong>; only then rank by score.</li><li>Show why A is not shown, and let Chelsea change her limits if she wants.</li></ul>
+<h3>6. Clicks are misleading</h3>
+<p><strong>Business: 160 clicks / 800 views. Cybersecurity: 10 clicks / 50 views. Does the user prefer business?</strong></p>
+<ul><li><strong>No</strong> — both are 20%. Business was simply <strong>shown more</strong> (exposure bias).</li><li>Fix: compare rates, add variety (exploration), let user state interests.</li></ul>
+<h3>7. Voice assistant mistake</h3>
+<p><strong>Voice on phone selects the wrong course; user then switches to tablet.</strong></p>
+<ul><li>Show what was understood, <strong>confirm</strong> before acting, <strong>undo</strong>.</li><li><strong>Sync</strong> state between devices; fallback to touch after repeated voice errors.</li><li>Measure: wrong selections, recovery time.</li></ul>
+<h3>8. Add all modalities?</h3>
+<p><strong>Will offering voice + touch + gesture make the app easier and accessible?</strong></p>
+<ul><li><strong>Not automatically.</strong> Choose the right mode per task and place.</li><li>Every important task must work without voice, without sound, without gestures.</li><li>Keep context when switching. Test with diverse users.</li></ul>
+<h3>9. AR or VR for lab training</h3>
+<ul><li><strong>VR</strong> for safe, repeatable practice of risky/expensive steps.</li><li><strong>AR</strong> for step-by-step help on the real equipment.</li><li>AI recognises objects but shows <strong>uncertainty</strong>; user verifies when unsure.</li><li>Comfort (teleport, seated mode), accessibility, safety.</li><li>Measure: success, errors, discomfort, presence. If success ↑ but discomfort ↑ → trade-off, investigate.</li></ul>
+<h3>10. AI agent</h3>
+<p><strong>An AI agent does 9 steps correctly but submits a course registration without asking.</strong></p>
+<ul><li><strong>Failure.</strong> Judge the whole task, not single steps.</li><li>Fix: user <strong>approves</strong> important actions; show what the agent is doing; easy stop and undo.</li><li>Measure: end-to-end success, unauthorised actions, how often users must step in.</li></ul>
+<h3>11. Synthetic users</h3>
+<p><strong>Can we skip real user tests and use AI-generated users?</strong></p>
+<ul><li><strong>No.</strong> Synthetic users can give early ideas, but they are not real evidence and miss diversity. Always test with real people.</li></ul>
+<h3>12. Which of the 8 topics can you ignore?</h3>
+<ul><li><strong>None.</strong> A good AI needs: human goals (1), solid architecture (2), good front end (3), real users (4), the right problem (5), the right interaction (6, 7), and proof that it works (8).</li></ul>
+<h2>Easy-to-confuse pairs</h2>
+<table><thead><tr><th>Pair</th><th>Difference</th></tr></thead><tbody>
+<tr><td>UX vs UI</td><td>Whole experience vs what you see and click</td></tr>
+<tr><td>UCD vs Design Thinking</td><td>Evidence about users vs exploring solutions</td></tr>
+<tr><td>Personalization vs Customization</td><td>System adapts vs user sets</td></tr>
+<tr><td>Reliable vs Available</td><td>Correct vs online</td></tr>
+<tr><td>Immersion vs Presence</td><td>Technology vs feeling</td></tr>
+<tr><td>Augmentation vs Automation</td><td>AI helps vs AI does alone</td></tr>
+<tr><td>Hard vs Soft</td><td>Filter vs rank</td></tr>
+<tr><td>Exploration vs Exploitation</td><td>Try new vs use known</td></tr>
+</tbody></table>
+<h2>Small formula box (just in case)</h2>
+<ul><li><strong>WER</strong> = (substitutions + deletions + insertions) / words × 100%</li><li><strong>Precision@K</strong> = relevant in top K / K</li><li><strong>Weighted score</strong> = sum of (weight × score), only for eligible items</li><li><strong>CTR</strong> = clicks / views</li></ul>
+</section>
+
+</main>
+</div>
+<script>
+(function(){
+  var secs=[].slice.call(document.querySelectorAll('main section'));
+  var nav=document.getElementById('nav');
+  secs.forEach(function(s){
+    var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.dataset.title;a.dataset.id=s.id;nav.appendChild(a);
+  });
+  secs.forEach(function(s,i){
+    var p=document.createElement('div');p.className='pager';
+    p.innerHTML=(i>0?'<a href="#'+secs[i-1].id+'">← '+secs[i-1].dataset.title+'</a>':'<span></span>')+
+                (i<secs.length-1?'<a href="#'+secs[i+1].id+'">'+secs[i+1].dataset.title+' →</a>':'<span></span>');
+    s.appendChild(p);
+  });
+  function show(){
+    var id=(location.hash||'#overview').slice(1);
+    if(!document.getElementById(id)) id='overview';
+    secs.forEach(function(s){s.classList.toggle('show',s.id===id)});
+    [].forEach.call(nav.querySelectorAll('a'),function(a){a.classList.toggle('active',a.dataset.id===id)});
+    nav.classList.remove('open');window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',show);show();
+  document.getElementById('menu').onclick=function(){var o=nav.classList.toggle('open');this.setAttribute('aria-expanded',o)};
+})();
+</script>
+</body>
+</html>
