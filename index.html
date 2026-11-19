@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="disabled-adaptations" content="watch">
 <title>UX in AI Solutions — Exam Handbook</title>
 <style>
 :root{--bg:#fbfaf7;--fg:#1f1d1a;--muted:#6b665e;--line:#e6e1d8;--accent:#b4532a;--side:#f3efe8}
@@ -40,7 +41,7 @@ em{color:var(--muted)}
  table{display:block;overflow-x:auto}
 }
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-@media (max-width:330px){
+@media (max-width:330px),(max-device-width:330px){
  html,body{font-size:8.5px;line-height:1.35}
  #menu{padding:4px 6px;font-size:9px}
  main{padding:4px 4px 24px}
@@ -635,6 +636,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     nav.classList.remove('open');window.scrollTo(0,0);
   }
   window.addEventListener('hashchange',show);show();
+  if(/debug/.test(location.search)){var d=document.createElement('div');d.style.cssText='position:fixed;top:0;left:0;background:#000;color:#0f0;font:10px monospace;z-index:9;padding:2px';d.textContent='w='+innerWidth+' sw='+screen.width+' dpr='+devicePixelRatio+' fs='+getComputedStyle(document.body).fontSize;document.body.appendChild(d)}
   document.getElementById('menu').onclick=function(){var o=nav.classList.toggle('open');this.setAttribute('aria-expanded',o)};
 })();
 </script>
