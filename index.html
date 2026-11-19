@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UX in AI Solutions — Exam Handbook</title>
+<script>document.documentElement.className="js"</script>
 <style>
 :root{--bg:#fbfaf7;--fg:#1f1d1a;--muted:#6b665e;--line:#e6e1d8;--accent:#b4532a;--side:#f3efe8}
 @media (prefers-color-scheme:dark){:root{--bg:#1a1917;--fg:#ece8e1;--muted:#a39d93;--line:#34312c;--accent:#e08a5f;--side:#22201d}}
@@ -16,8 +17,15 @@ nav a{display:block;padding:7px 10px;border-radius:6px;color:var(--fg);text-deco
 nav a:hover{background:var(--line)}
 nav a.active{background:var(--accent);color:#fff}
 main{flex:1;min-width:0;padding:40px 48px 80px;max-width:860px}
-section{display:none}
-section.show{display:block}
+.js section{display:none}
+.js section.show{display:block}
+section{margin-bottom:40px}
+.wrap>nav{display:none}
+.js .wrap>nav{display:block}
+.toc{background:var(--side);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:0 0 24px;font-size:14.5px}
+.toc ul{margin:6px 0 0;padding-left:18px}
+.toc a{color:var(--accent);text-decoration:none}
+@media (min-width:801px){.js .toc{display:none}}
 h1{font-size:30px;line-height:1.25;margin:0 0 20px}
 h2{font-size:22px;margin:36px 0 12px}
 h3{font-size:18px;margin:32px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
@@ -31,18 +39,19 @@ em{color:var(--muted)}
 .pager{display:flex;justify-content:space-between;margin-top:48px;gap:12px}
 .pager a{color:var(--accent);text-decoration:none;font-weight:600}
 #menu{display:none}
+html:not(.js) #menu{display:none!important}
 @media (max-width:800px){
  .wrap{display:block}
- nav{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--line);display:none}
- nav.open{display:block}
- #menu{display:block;width:100%;padding:12px 16px;background:var(--side);border:0;border-bottom:1px solid var(--line);color:var(--fg);font:600 15px inherit;text-align:left}
+ .js .wrap>nav{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--line);display:none}
+ .js .wrap>nav.open{display:block}
+ .js #menu{display:none;width:100%;padding:12px 16px;background:var(--side);border:0;border-bottom:1px solid var(--line);color:var(--fg);font:600 15px inherit;text-align:left}
  main{padding:24px 18px 60px}
  table{display:block;overflow-x:auto}
 }
 </style>
 </head>
 <body>
-<button id="menu" aria-expanded="false">☰ Chapters</button>
+
 <div class="wrap">
 <nav id="nav" aria-label="Chapters">
 <div class="brand">UX in AI — Exam Handbook</div>
@@ -50,6 +59,7 @@ em{color:var(--muted)}
 <main id="main">
 
 <section id="overview" data-title="Overview">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>UX in AI Solutions — Exam Handbook</h1>
 <p class="meta">2026-11-18</p>
 <p><strong>Big idea of the whole course:</strong> AI is good only when people can use it to reach their goals safely. High model accuracy is not enough.</p>
@@ -79,6 +89,7 @@ em{color:var(--muted)}
 </section>
 
 <section id="ch1" data-title="1. Role of UX in AI">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>Chapter 1 — Role of UX in AI</h1>
 <h3>1.1 UX in AI</h3>
 <p><strong>What:</strong> UX in AI means people can use the AI's output to reach a real goal. A model with high accuracy is not enough on its own.</p>
@@ -141,6 +152,7 @@ em{color:var(--muted)}
 </section>
 
 <section id="ch2" data-title="2. AI Architecture">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>Chapter 2 — Architecture for User-Centered AI</h1>
 <p>You know the technology from work. In the exam, always connect the architecture to what the <strong>user</strong> feels: speed, reliability and trust.</p>
 <h3>2.1 Architecture shapes the experience</h3>
@@ -197,6 +209,7 @@ em{color:var(--muted)}
 </section>
 
 <section id="ch3" data-title="3. Web Technologies">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>Chapter 3 — Web Technologies and UX</h1>
 <p>You know the technology from work. The exam wants one main idea: <strong>new technology does not automatically give a better user experience.</strong></p>
 <h3>3.1 Choose technology by user need</h3>
@@ -246,6 +259,7 @@ em{color:var(--muted)}
 </section>
 
 <section id="ch4" data-title="4. User-Centered Design">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>Chapter 4 — User-Centered Design (UCD)</h1>
 <h3>4.1 What UCD is</h3>
 <p><strong>What:</strong> User-Centered Design means the real users' needs, goals and situation guide every design decision, from the start to the end of the project.</p>
@@ -313,6 +327,7 @@ em{color:var(--muted)}
 </section>
 
 <section id="ch5" data-title="5. Design Thinking">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>Chapter 5 — Design Thinking for AI</h1>
 <h3>5.1 What Design Thinking is</h3>
 <p><strong>What:</strong> Design Thinking is a human-centred way to solve unclear problems. We understand people first, and only then choose features or technology.</p>
@@ -367,6 +382,7 @@ em{color:var(--muted)}
 </section>
 
 <section id="ch6" data-title="6. Multimodal UX">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>Chapter 6 — Multimodal UX (Voice, Touch, Gesture)</h1>
 <h3>6.1 What multimodal means</h3>
 <p><strong>What:</strong> A multimodal system lets users interact in more than one way, for example by voice, touch, gesture or text, and it can answer with screen, sound or vibration.</p>
@@ -420,6 +436,7 @@ em{color:var(--muted)}
 </section>
 
 <section id="ch7" data-title="7. AR and VR">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>Chapter 7 — AR and VR</h1>
 <h3>7.1 AR, VR, MR and XR</h3>
 <p><strong>What:</strong> AR adds digital information on top of the real world. VR replaces the real world with a fully computer-made world. MR lets real and digital objects interact. XR is the name for all of them together.</p>
@@ -477,6 +494,7 @@ em{color:var(--muted)}
 </section>
 
 <section id="ch8" data-title="8. Personalization & Research">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>Chapter 8 — Personalization and New UX Research</h1>
 <p>This is the most important chapter for scenario questions.</p>
 <h3>8.1 Personalization vs customization</h3>
@@ -543,6 +561,7 @@ em{color:var(--muted)}
 </section>
 
 <section id="review" data-title="Review: Formulas & Questions">
+<nav class="toc" aria-label="Chapters"><strong>Chapters</strong><ul><li><a href="#overview">Overview</a></li><li><a href="#ch1">1. Role of UX in AI</a></li><li><a href="#ch2">2. AI Architecture</a></li><li><a href="#ch3">3. Web Technologies</a></li><li><a href="#ch4">4. User-Centered Design</a></li><li><a href="#ch5">5. Design Thinking</a></li><li><a href="#ch6">6. Multimodal UX</a></li><li><a href="#ch7">7. AR and VR</a></li><li><a href="#ch8">8. Personalization &amp; Research</a></li><li><a href="#review">Review: Formulas &amp; Questions</a></li></ul></nav>
 <h1>Review — Practice Scenarios</h1>
 <p>Each answer follows the template: <strong>User → Problem → AI risk → Design fix → Measure.</strong> Cover the answer, try it yourself, then compare.</p>
 <h3>1. Same accuracy, different design</h3>
@@ -617,7 +636,7 @@ em{color:var(--muted)}
     nav.classList.remove('open');window.scrollTo(0,0);
   }
   window.addEventListener('hashchange',show);show();
-  document.getElementById('menu').onclick=function(){var o=nav.classList.toggle('open');this.setAttribute('aria-expanded',o)};
+  
 })();
 </script>
 </body>
